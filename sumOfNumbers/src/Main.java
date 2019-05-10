@@ -2,6 +2,10 @@ import java.util.Scanner;
 
 public class Main {
 
+    //if the flag is true, that's the 6th task
+    //if it's false, that's the 5th task
+    private static boolean directDigitOrder = true;
+
     private static LinkedList loadList(String listAsString) {
         LinkedList revList = new LinkedList();
 
@@ -24,7 +28,17 @@ public class Main {
         System.out.print("The second list: ");
         secondNumberList.print();
 
+        if (directDigitOrder) {
+
+            firstNumberList = firstNumberList.reverseCopy();
+            secondNumberList = secondNumberList.reverseCopy();
+        }
+
         LinkedList sumList = sum(firstNumberList, secondNumberList);
+
+        if (directDigitOrder) {
+            sumList = sumList.reverseCopy();
+        }
 
         System.out.print("The sum list: ");
         sumList.print();
